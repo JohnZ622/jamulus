@@ -592,6 +592,8 @@ void CClient::StartTimerGainOrPan()
 
 void CClient::SetRemoteChanPan ( const int iId, const float fPan )
 {
+    Q_ASSERT ( iId >= 0 && iId < MAX_NUM_CHANNELS );
+
     QMutexLocker locker ( &MutexGainOrPan );
 
     CClientChannel* clientChan = &clientChannels[iId];
